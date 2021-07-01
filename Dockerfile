@@ -7,7 +7,7 @@ LABEL maintainer="Avinash Reddy Palleti <avinash.reddy.palleti@intel.com>"
 
 # TODO: Rename the builder environment variable to inform users about application you provide them
 # ENV BUILDER_VERSION 1.0
-
+ENV EXE=
 # TODO: Set labels used in OpenShift to describe the builder image
 LABEL io.k8s.description="Platform for building CPP applications" \
       io.k8s.display-name="builder cpp" \
