@@ -26,5 +26,6 @@ cp -Rf /tmp/src/. ./
 
 echo "---> Building application from source..."
 echo "Running cmake commands"
-cmake . -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+#cmake . -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+cmake . -G "Unix Makefiles" $CAMKE_ARG
 cmake --build .
