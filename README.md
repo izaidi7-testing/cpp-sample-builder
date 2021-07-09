@@ -5,5 +5,4 @@ sudo /usr/local/bin/s2i build test/test-app/ cpp-builder:0.1 sample-app
 sudo docker run sample-app
 
 With Environment  Variable:
-
-sudo /usr/local/bin/s2i build test/test-app/ cpp-builder:0.1 sample-app -e "EXE=hello"
+sudo /usr/local/bin/s2i build test/test-app/ cpp-builder:0.1 sample-app -e "EXE=hello" -e "CMAKE_ARG='-DCMAKE_BUILD_TYPE=Release'"
