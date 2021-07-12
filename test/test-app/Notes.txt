@@ -1,0 +1,15 @@
+```
+// build data_runtime image
+python3 docker_openvino.py build \
+        --distribution dev \
+        --product_version 2021.4 \
+        -os ubuntu18 \
+        --build_arg no_samples=True \
+        --tags builder_base_dev:2021.4
+```
+```
+time docker build -f rhel8_multi_stage_build.dockerfile -t rhel8_runtime_cpp_crossroad_camera_demo:2021.4 --no-cache .
+docker run --rm -v ${PWD}/test-result:/home/openvino/results rhel8_runtime_cpp_crossroad_camera_demo:2021.4
+```
+
+docker run --rm -it -v ${PWD}/test-result:/home/openvino/results rhel8_runtime_cpp_crossroad_camera_demo:2021.4 /bin/bash

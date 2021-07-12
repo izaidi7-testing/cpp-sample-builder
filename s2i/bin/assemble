@@ -8,24 +8,34 @@
 #
 
 # If the 'cpp' assemble script is executed with the '-h' flag, print the usage.
-if [[ "$1" == "-h" ]]; then
-	exec /usr/libexec/s2i/usage
-fi
+#if [[ "$1" == "-h" ]]; then
+#	exec /usr/libexec/s2i/usage
+#fi
 
 # Restore artifacts from the previous build (if they exist).
 #
-if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
-  echo "---> Restoring build artifacts..."
-  shopt -s dotglob
-  mv /tmp/artifacts/* ./
-  shopt -u dotglob
-fi
+#if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+#  echo "---> Restoring build artifacts..."
+#  shopt -s dotglob
+#  mv /tmp/artifacts/* ./
+#  shopt -u dotglob
+#fi
 
 echo "---> Installing application source..."
 cp -Rf /tmp/src/. ./
 
 echo "---> Building application from source..."
-echo "Running cmake commands"
+echo "Running Pre build script/command"
 #cmake . -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
-cmake . -G "Unix Makefiles" $CAMKE_ARG
-cmake --build .
+. $PRE_BUILD_SCRIPT #source ${INTEL_OPENVINO_DIR}/bin/setupvars.sh &&  tar -xvzf omz-2021.4.tar.gz
+
+echo $PWD
+echo $CONTEXT_DIR
+ls -la
+cd $CONTEXT_DIR
+echo $CMAKE_ARGS
+echo "Running Cmake command"
+cmake . $CMAKE_ARGS
+cmake --build .  $CMAKE_BUILD_ARGS
+cd ./
+$POST_BUILD_SCRIPT

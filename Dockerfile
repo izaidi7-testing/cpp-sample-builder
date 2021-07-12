@@ -1,5 +1,5 @@
 # cpp
-FROM registry.redhat.io/codeready-workspaces/stacks-cpp-rhel8
+FROM openvino/ubuntu18_data_dev:latest
 
 ARG S2IDIR="/home/s2i"
 # TODO: Put the maintainer name in the image metadata
@@ -7,7 +7,12 @@ LABEL maintainer="Avinash Reddy Palleti <avinash.reddy.palleti@intel.com>"
 
 # TODO: Rename the builder environment variable to inform users about application you provide them
 # ENV BUILDER_VERSION 1.0
-ENV EXE=
+ENV PRE_BUILD_SCRIPT=
+ENV CMAKE_ARGS=
+ENV CMAKE_BUILD_ARGS=
+ENV POST_BUILD_SCRIPT=
+ENV ENTRY_POINT=
+ENV CONTEX_DIR=
 # TODO: Set labels used in OpenShift to describe the builder image
 LABEL io.k8s.description="Platform for building CPP applications" \
       io.k8s.display-name="builder cpp" \
@@ -27,7 +32,7 @@ RUN chmod 777 -R $S2IDIR
 # RUN chown -R 1001:1001 /opt/app-root
 
 # This default user is created in the openshift/base-centos7 image
-USER 1001
+#USER 1001
 # TODO: Set the default port for applications built using this image
 # EXPOSE 8080
 
