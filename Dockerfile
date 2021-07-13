@@ -1,5 +1,5 @@
 # cpp
-FROM openvino/ubuntu18_data_dev:latest
+FROM intelde/ubuntu18_data_dev:2021.4
 
 ARG S2IDIR="/home/s2i"
 # TODO: Put the maintainer name in the image metadata

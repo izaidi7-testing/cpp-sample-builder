@@ -23,19 +23,19 @@
 
 echo "---> Installing application source..."
 cp -Rf /tmp/src/. ./
-
+rm -rf /tmp/
+echo $PWD
+ROOT_DIR=$PWD
 echo "---> Building application from source..."
 echo "Running Pre build script/command"
 #cmake . -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 . $PRE_BUILD_SCRIPT #source ${INTEL_OPENVINO_DIR}/bin/setupvars.sh &&  tar -xvzf omz-2021.4.tar.gz
-
-echo $PWD
-echo $CONTEXT_DIR
-ls -la
+rm -rf *.tar.gz
 cd $CONTEXT_DIR
 echo $CMAKE_ARGS
 echo "Running Cmake command"
 cmake . $CMAKE_ARGS
 cmake --build .  $CMAKE_BUILD_ARGS
-cd ./
-$POST_BUILD_SCRIPT
+cd $ROOT_DIR
+echo $PWD
+. $POST_BUILD_SCRIPT
