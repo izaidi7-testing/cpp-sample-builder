@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p ~/results
+#mkdir -p ~/results
 
 source /opt/intel/openvino_2021/bin/setupvars.sh && \
     ./open_model_zoo-2021.4/demos/intel64/Release/crossroad_camera_demo \
