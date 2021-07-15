@@ -20,10 +20,10 @@
 #  mv /tmp/artifacts/* ./
 #  shopt -u dotglob
 #fi
-
 echo "---> Installing application source..."
-cp -Rf /tmp/src/. ./
-rm -rf /tmp/
+cp -Rf /tmp/src/. /opt/app-root/
+ls -la /
+cd /opt/app-root/
 echo $PWD
 ROOT_DIR=$PWD
 echo "---> Building application from source..."

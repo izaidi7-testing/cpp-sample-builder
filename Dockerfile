@@ -13,6 +13,7 @@ ENV CMAKE_BUILD_ARGS=
 ENV POST_BUILD_SCRIPT=
 ENV ENTRY_POINT=
 ENV CONTEX_DIR=
+ENV HOME=/opt/app-root
 # TODO: Set labels used in OpenShift to describe the builder image
 LABEL io.k8s.description="Platform for building CPP applications" \
       io.k8s.display-name="builder cpp" \
@@ -23,16 +24,19 @@ LABEL io.k8s.description="Platform for building CPP applications" \
 
 # TODO (optional): Copy the builder files into /opt/app-root
 # COPY ./<builder_folder>/ /opt/app-root/
-USER root
+#USER root
 # TODO: Copy the S2I scripts to /usr/libexec/s2i, since openshift/base-centos7 image
 # sets io.openshift.s2i.scripts-url label that way, or update that label
+USER 0
+RUN mkdir -p /opt/app-root && chown -R 1001:0 /opt/app-root
 COPY s2i $S2IDIR
-RUN chmod 777 -R $S2IDIR
+#RUN chmod 777 -R $S2IDIR
 # TODO: Drop the root user and make the content of /opt/app-root owned by user 1001
 # RUN chown -R 1001:1001 /opt/app-root
 
 # This default user is created in the openshift/base-centos7 image
-#USER 1001
+USER 1001
+WORKDIR $HOME
 # TODO: Set the default port for applications built using this image
 # EXPOSE 8080
 
