@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p ~/results
+#mkdir -p ~/results
 
 source /opt/intel/openvino/bin/setupvars.sh && \
     python3 ~/open_model_zoo-2021.4/demos/face_detection_mtcnn_demo/python/face_detection_mtcnn_demo.py \
