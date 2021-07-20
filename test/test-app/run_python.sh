@@ -1,6 +1,7 @@
 #!/bin/bash
 #mkdir -p ~/results
-
+echo $PWD
+ls -la
 source /opt/intel/openvino/bin/setupvars.sh && \
     python3 ~/open_model_zoo-2021.4/demos/face_detection_mtcnn_demo/python/face_detection_mtcnn_demo.py \
     -i ~/face-detection.jpg \
@@ -10,4 +11,4 @@ source /opt/intel/openvino/bin/setupvars.sh && \
     -th 0.7 \
     -d CPU \
     --no_show \
-    -o ~/face-result.jpg
+    -o ~/../face-result.jpg
