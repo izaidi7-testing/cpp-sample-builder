@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p ~/results
+#mkdir -p ~/results
 
 source /opt/intel/openvino_2021/bin/setupvars.sh && \
     ./open_model_zoo-2021.4/demos/intel64/Release/crossroad_camera_demo \
@@ -9,4 +9,4 @@ source /opt/intel/openvino_2021/bin/setupvars.sh && \
     -m_reid ./open_model_zoo-2021.4/demos/crossroad_camera_demo/cpp/intel/person-reidentification-retail-0287/FP16-INT8/person-reidentification-retail-0287.xml \
     -d CPU \
     -no_show \
-    -o ./cpp-test-result.mp4
+    -o ./cpp-test-result2.mp4
