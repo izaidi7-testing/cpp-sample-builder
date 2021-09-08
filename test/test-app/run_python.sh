@@ -11,4 +11,4 @@ source /opt/intel/openvino/bin/setupvars.sh && \
     -th 0.7 \
     -d CPU \
     --no_show \
-    -o ~/../face-result.jpg
+    -o /data/face-result.jpg
