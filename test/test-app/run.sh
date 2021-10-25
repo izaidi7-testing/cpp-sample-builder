@@ -8,5 +8,4 @@ source /opt/intel/openvino_2021/bin/setupvars.sh && \
     -m_pa ./open_model_zoo-2021.4/demos/crossroad_camera_demo/cpp/intel/person-attributes-recognition-crossroad-0230/FP16-INT8/person-attributes-recognition-crossroad-0230.xml \
     -m_reid ./open_model_zoo-2021.4/demos/crossroad_camera_demo/cpp/intel/person-reidentification-retail-0287/FP16-INT8/person-reidentification-retail-0287.xml \
     -d GPU \
-    -no_show \
-    -o /data/output_%03d.jpg
+    -o /data/output.mp4
