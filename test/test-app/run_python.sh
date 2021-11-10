@@ -11,5 +11,4 @@ source /opt/intel/openvino/bin/setupvars.sh && \
     -th 0.7 \
     -d CPU \
     --no_show \
-    -auto_resize \
     -o /data/face-detection-result.jpg
